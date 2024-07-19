@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1 id="titolo">Quiz!</h1>
+
+    <h2 id="msg"></h2>
+
+    <h3 id="score">Your score is </h3>
+
+    <script>
+        //alert("OK")
+        const titolo = document.getElementById("titolo")
+
+        console.log(titolo)
+
+        setTimeout( () => {
+            titolo.innerHTML = "<strong>Magia</strong>"
+        },
+        3000)
+    </script>
+</body>
+</html>
