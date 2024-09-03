@@ -18,34 +18,54 @@ addFirstUser("Giovanni")
 console.log(names)
 */
 
-setTimeout(() => {
-    console.log("Stop setInterval")
-    clearInterval(userInterval)
-    //addUser("Pippo", printArray)
-}, 6000)
+/*setTimeout(() => {
+  console.log("Stop setInterval");
+  clearInterval(userInterval);
+  //addUser("Pippo", printArray)
+}, 6000);
 
 const userInterval = setInterval(() => {
-    addUser("Pippo", printArray)
-}, 3000)
-
-
-
-
+  addUser("Pippo", printArray);
+}, 3000);
+*/
 function removeUser() {
-    names.pop()
+  names.pop();
 }
 
 function addUser(name, callback) {
-    names.push(name)
-    callback()
+  names.push(name);
+  callback();
 }
 
 function addFirstUser(name) {
-    names.unshift(name)
+  names.unshift(name);
 }
 
 function printArray() {
-    console.log(names)
-} 
+  console.log(names);
+}
 
+// Promise
+// Simulo una chiamata fetch (server terzo) per recuperare i dati
 
+function fetchGetUser() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const x = 5;
+      const y = 2;
+      let sum = x + y;
+      if (sum === 4) {
+        resolve(sum);
+      } else {
+        reject("Errore");
+      }
+    }, 2000);
+  });
+}
+
+// Eseguo il callback quando la Promise è finito
+fetchGetUser().then((res) => {
+    console.log(res)
+}).catch((error) => {
+    console.log(error)
+})
