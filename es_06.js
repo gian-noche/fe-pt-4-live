@@ -63,9 +63,41 @@ function fetchGetUser() {
   });
 }
 
+function fetchGetUserCars() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const x = 5;
+      const y = 2;
+      let sum = x + y;
+      if (sum === 7) {
+        resolve(sum);
+      } else {
+        reject("Errore");
+      }
+    }, 2000);
+  });
+}
+
 // Eseguo il callback quando la Promise è finito
-fetchGetUser().then((res) => {
+/*fetchGetUser().then((res) => {
     console.log(res)
 }).catch((error) => {
     console.log(error)
-})
+})*/
+
+//try...catch
+async function callAsync() { 
+  try {
+  const res = await fetchGetUser()
+  const res2 = await fetchGetUserCars()
+  console.log(res)
+
+} catch (error) {
+  console.error(error);
+  // Expected output: ReferenceError: nonExistentFunction is not defined
+  // (Note: the exact output may be browser-dependent)
+}
+}
+
+callAsync()
+
